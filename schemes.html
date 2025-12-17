@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Schemes - KOSH</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">KOSH</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="schemes.html" class="active">Find Schemes</a></li>
+            <li><a href="documentation.html">Documentation Help</a></li>
+            <li><a href="lab.html">Financial Lab</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="scheme-navigation">
+            <h1>Find Your Eligible Schemes</h1>
+            
+            <!-- User Profile Form -->
+            <div class="profile-form">
+                <h2>Tell us about yourself:</h2>
+                <form id="schemeForm">
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" min="18" max="80" value="35" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="occupation">Occupation / Craft:</label>
+                        <select id="occupation" required>
+                            <option value="artisan">Artisan (Carpenter, Potter, Weaver, etc.)</option>
+                            <option value="small_business">Small Business Owner</option>
+                            <option value="farmer">Farmer</option>
+                            <option value="professional">Salaried Professional</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="income">Monthly Income (₹):</label>
+                        <select id="income" required>
+                            <option value="low">Below 15,000</option>
+                            <option value="medium">15,000 - 50,000</option>
+                            <option value="high">Above 50,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location:</label>
+                        <select id="location" required>
+                            <option value="urban">Urban</option>
+                            <option value="rural">Rural</option>
+                            <option value="semi_urban">Semi-Urban</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="btn primary" onclick="findSchemes()">
+                        Find My Schemes
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h2>🎯 Your Eligible Schemes:</h2>
+                
+                <div class="scheme-card">
+                    <h3>PM Vishwakarma Scheme</h3>
+                    <p class="eligibility-reason">✅ Eligible: Artisan with monthly income below ₹50,000</p>
+                    <p><strong>Benefits:</strong> Loan up to ₹3 lakhs @ 5% interest</p>
+                    <p><strong>For:</strong> Traditional artisans and craftspeople</p>
+                    <p><strong>Documents needed:</strong> Aadhaar, Income Certificate, Udyam Registration</p>
+                    <button class="btn primary apply-btn">Apply Now (Demo)</button>
+                </div>
+                
+                <div class="scheme-card">
+                    <h3>SFURTI Scheme</h3>
+                    <p class="eligibility-reason">✅ Eligible: Artisan cluster potential</p>
+                    <p><strong>Benefits:</strong> ₹2.5 crore for cluster development</p>
+                    <p><strong>For:</strong> Groups of artisans working together</p>
+                    <p><strong>Documents needed:</strong> Group registration, Business plan, Bank details</p>
+                    <button class="btn primary apply-btn">Learn More</button>
+                </div>
+                
+                <div class="scheme-card">
+                    <h3>Ambedkar Hastshilp Vikas Yojana</h3>
+                    <p class="eligibility-reason">✅ Eligible: Handicraft artisan</p>
+                    <p><strong>Benefits:</strong> Marketing support & infrastructure development</p>
+                    <p><strong>For:</strong> Individual handicraft artisans</p>
+                    <p><strong>Documents needed:</strong> Craft certificate, Aadhaar, Bank account</p>
+                    <button class="btn primary apply-btn">Check Details</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>KOSH - Your Financial Partner | Prototype Version | Academic Project</p>
+        <p class="disclaimer">Disclaimer: This is an educational prototype, not financial advice.</p>
+    </footer>
+
+    <script>
+    function findSchemes() {
+        // Get form values
+        const age = document.getElementById('age').value;
+        const occupation = document.getElementById('occupation').value;
+        const income = document.getElementById('income').value;
+        const location = document.getElementById('location').value;
+        
+        // Show results section
+        document.getElementById('resultsSection').style.display = 'block';
+        
+        // Scroll to results
+        document.getElementById('resultsSection').scrollIntoView({
+            behavior: 'smooth'
+        });
+        
+        // Show confirmation message
+        alert(`Finding schemes for:\nAge: ${age}\nOccupation: ${occupation}\nIncome: ${income}\nLocation: ${location}`);
+    }
+    </script>
+</body>
+</html>
